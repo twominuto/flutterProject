@@ -18,33 +18,36 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final questions = const [
+    //const instead of var
+    {
+      'questionText': 'What\'s your favorite animal?',
+      'answers': ['fox', 'lion', 'tiger', 'grape'],
+    },
+    {
+      'questionText': 'What\'s your favorite color?',
+      'answers': ['black', 'white', 'brown', 'yellow'],
+    },
+    {
+      'questionText': 'Who\'s your favorite udemy instructor?',
+      'answers': ['Maximilian', 'Max', 'Maxi', 'Milo'],
+    },
+  ];
   var _questionIndex = 0;
 
   void _answerQuestion() {
     setState(() {
       _questionIndex = _questionIndex + 1;
     });
+    if (_questionIndex < questions.length) {
+      print('we have more questions!');
+    }
 
     print(_questionIndex);
   }
 
   @override
   Widget build(BuildContext context) {
-    const questions = [                 //const instead of var
-      {
-        'questionText': 'What\'s your favorite animal?',
-        'answers': ['fox', 'lion', 'tiger', 'grape'],
-      },
-      {
-        'questionText': 'What\'s your favorite color?',
-        'answers': ['black', 'white', 'brown', 'yellow'],
-      },
-      {
-        'questionText': 'Who\'s your favorite udemy instructor?',
-        'answers': ['Maximilian', 'Max', 'Maxi', 'Milo'],
-      },
-    ];
-
     // var dummy = ['Hello'];
     // dummy.add('Boi');
     // print(dummy);
